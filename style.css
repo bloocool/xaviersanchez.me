@@ -6,75 +6,138 @@
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* 1. Main Layout */
 body {
-    /* Matches the blue background from your image */
-    background: linear-gradient(180deg, #0099dd 0%, #0066aa 100%);
     min-height: 100vh;
     display: flex;
-    justify-content: center; /* Centers the content on Desktop */
+    justify-content: center;
     align-items: center;
-    color: white;
     padding: 20px;
+
+    /* These ensure the background layer stays contained */
+    position: relative;
+    overflow-x: hidden;
+
+    /* Text Color */
+    color: #D4AF37;
 }
 
-/* The "Phone" Container */
+/* 2. THE BLURRED BACKGROUND LAYER */
+/* This pseudo-element creates a separate layer just for the image */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* Push this layer behind everything else */
+    z-index: -1;
+
+    /* Image Settings */
+    background-image: url('assets/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-color: #000000;
+
+    /* THE TRICK: Darken (0.3) and Blur (8px) without affecting text */
+    filter: brightness(1) blur(12px);
+
+    /* Scale up slightly to hide blurry edges */
+    transform: scale(1.05);
+}
+
+/* 3. The Content Container */
 .container {
     width: 100%;
-    max-width: 400px; /* Keeps it looking like a mobile app even on desktop */
+    max-width: 400px;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    /* This ensures your buttons sit ON TOP of the blurred layer */
+    position: relative;
+    z-index: 1;
 }
 
-/* Profile Image */
+/* 4. Profile Image */
 .profile-pic {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Makes it a perfect circle */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
     object-fit: cover;
-    border: 3px solid rgba(255, 255, 255, 0.3);
+    /* Gold Border */
+    border: 4px solid #D4AF37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
     margin-bottom: 15px;
+
+    /* Centering fix */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Text Styling */
+/* 5. Typography */
 h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: 700;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
     margin-bottom: 5px;
 }
 
 .subtitle {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    color: #D4AF37;
     font-weight: 500;
-    opacity: 0.9;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Section Headers (e.g., Training Videos) */
-.section-header {
-    margin: 15px 0 10px;
-    font-weight: bold;
-    font-size: 0.95rem;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+.section-header span {
+    background: rgba(0, 0, 0, 0.8);
+    /* Semi-transparent black */
+    padding: 5px 15px;
+    border: 1px solid #D4AF37;
+    border-radius: 20px;
+    color: #D4AF37;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(5px);
 }
 
-/* Buttons */
+/* 6. BUTTONS (Restored Gold Style) */
 .btn {
     display: block;
-    background-color: white;
-    color: #333;
+    width: 100%;
+    /* Gradient Gold Background */
+    background: linear-gradient(45deg, #D4AF37, #F2D06B);
+    color: #000000;
+    /* Black Text */
     text-decoration: none;
-    padding: 16px;
-    border-radius: 50px; /* Pill shape */
-    font-weight: 600;
+    padding: 18px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
     margin-bottom: 12px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: 2px solid transparent;
+    cursor: pointer;
 }
 
 .btn:hover {
-    transform: translateY(-2px); /* Slight lift on hover */
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+    /* Gold Glow */
+    background: #000000;
+    /* Turns black on hover */
+    color: #D4AF37;
+    /* Text turns gold on hover */
+    border: 2px solid #D4AF37;
 }
 
 /* Social Icons */
@@ -82,15 +145,30 @@ h1 {
     margin-top: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
+    /* Ensures the group is centered in the middle of the screen */
+    gap: 15px;
+    /* Reduces the gap slightly since we are adding width to the icons themselves */
 }
 
 .socials a {
-    color: white;
+    /* 1. Force every icon into an invisible square box of the same size */
+    width: 50px;
+    height: 50px;
+
+    /* 2. Center the icon perfectly inside that box */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* 3. Standard Styling */
+    color: #D4AF37;
     font-size: 1.8rem;
-    transition: opacity 0.2s;
+    text-decoration: none;
+    transition: transform 0.2s, color 0.2s;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 1));
 }
 
 .socials a:hover {
-    opacity: 0.7;
+    color: #ffffff;
+    transform: translateY(-3px);
 }
