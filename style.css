@@ -57,7 +57,6 @@ body::before {
 
 .container {
     width: clamp(400px, 40vw, 700px);
-    max-width: 420px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -273,4 +272,36 @@ summary::-webkit-details-marker {
 .socials a:hover {
     color: var(--white);
     transform: translateY(-3px);
+}
+
+/* =========================================
+   6. DESKTOP "ZOOM" & SCALING
+   ========================================= */
+/* Only applies if screen is wider than an iPad (768px) */
+@media (min-width: 768px) {
+
+    /* 1. Zoom the text size */
+    body {
+        font-size: 125%;
+        /* Increases all text by 25% */
+    }
+
+    /* 2. Make the Name Huge */
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+    }
+
+    /* 3. Make buttons taller and more "premium" */
+    .btn {
+        padding: 22px;
+        /* Taller buttons */
+        font-size: 1.1rem;
+    }
+
+    /* 4. Add breathing room to the dropdown text */
+    .topic-content {
+        padding: 25px;
+        font-size: 1.1rem;
+    }
 }
