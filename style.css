@@ -34,7 +34,7 @@ body {
     color: var(--gold);
 }
 
-/* Background Effect */
+/* Background Effect - UPDATED TO WEBP */
 body::before {
     content: "";
     position: fixed;
@@ -43,7 +43,7 @@ body::before {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background-image: url('assets/background.jpg');
+    background-image: url('assets/background.webp');
     background-size: cover;
     background-position: center;
     background-color: var(--black);
@@ -99,7 +99,6 @@ body::before {
 .marquee-container {
     width: 100%;
     position: relative;
-    /* Fade Effect */
     -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
     mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
 }
@@ -110,7 +109,6 @@ body::before {
     gap: 0;
     width: max-content;
     will-change: transform;
-    /* Keeps it smooth */
     animation: scroll-infinite 20s linear infinite;
 }
 
@@ -205,6 +203,14 @@ h1 {
     user-select: none;
 }
 
+/* Optimized small button class */
+.btn-sm {
+    display: inline-flex;
+    width: auto;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+}
+
 .primary-btn {
     background: linear-gradient(45deg, var(--gold-highlight), #FDB931);
     font-size: 1.1rem;
@@ -227,7 +233,7 @@ h1 {
 }
 
 /* =========================================
-   6. INTERACTIVE ELEMENTS (Dropdowns/Footer)
+   6. INTERACTIVE ELEMENTS
    ========================================= */
 details.topic-dropdown {
     width: 100%;
@@ -275,7 +281,6 @@ summary::-webkit-details-marker {
     }
 }
 
-/* Socials */
 .socials {
     display: flex;
     justify-content: center;
@@ -301,7 +306,6 @@ summary::-webkit-details-marker {
     transform: translateY(-3px);
 }
 
-/* Footer */
 .legal-footer {
     margin-top: 25px;
     padding-bottom: 10px;
@@ -364,7 +368,6 @@ summary::-webkit-details-marker {
 @media (min-width: 768px) {
     body {
         align-items: flex-start;
-        /* Fixes cut-off top on laptops */
         padding-top: 60px;
     }
 

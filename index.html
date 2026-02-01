@@ -8,6 +8,8 @@
     <title>Xavier Sanchez | Speaker & Leader</title>
     <meta property="og:title" content="Xavier Sanchez: Speaker & Leader">
     <meta property="og:site_name" content="Xavier Sanchez Portfolio">
+    <meta property="og:image" content="https://xxaviersanchezz.me/assets/profile.webp">
+    <meta property="og:type" content="website">
 
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
@@ -21,12 +23,12 @@
     <meta name="twitter:title" content="Xavier Sanchez: Speaker & Leader">
     <meta name="twitter:description"
         content="Scaling operations, overcoming adversity, and the 'Never Say Never' mindset.">
-    <meta name="twitter:image" content="https://xxaviersanchezz.me/assets/profile.jpg">
+    <meta name="twitter:image" content="https://xxaviersanchezz.me/assets/profile.webp">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/webp" href="assets/favicon.webp">
+    <link rel="icon" type="image/webp" sizes="32x32" href="assets/favicon-32x32.webp">
+    <link rel="icon" type="image/webp" sizes="16x16" href="assets/favicon-16x16.webp">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.webp">
     <link rel="manifest" href="assets/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +39,7 @@
 
     <link rel="canonical" href="https://xxaviersanchezz.me/">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=6">
+    <link rel="stylesheet" href="style.css?v=7">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -53,7 +55,7 @@
         </div>
 
         <header class="profile">
-            <img src="assets/profile.jpg" alt="Xavier Sanchez" class="profile-pic" fetchpriority="high">
+            <img src="assets/profile.webp" alt="Xavier Sanchez" class="profile-pic" fetchpriority="high">
             <h1>Xavier Sanchez</h1>
             <p class="subtitle">Community Leader | Public Speaker | Inclusion Advocate</p>
         </header>
@@ -128,7 +130,6 @@
         // 2. The Logic
         const track = document.getElementById('marquee-track');
         const singleSet = partners.map(name => {
-            // FIXED: Replaced garbled character with standard bullet point
             return `<span class="partner">${name}</span> <span class="dot">•</span>`;
         }).join('');
 
