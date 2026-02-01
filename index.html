@@ -7,9 +7,9 @@
 
     <title>Xavier Sanchez | Speaker & Leader</title>
     <meta property="og:title" content="Xavier Sanchez: Speaker & Leader">
+    <meta property="og:site_name" content="Xavier Sanchez Portfolio">
 
     <meta name="referrer" content="strict-origin-when-cross-origin">
-
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
                script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; 
                style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; 
@@ -17,30 +17,27 @@
                img-src 'self' data: https:; 
                frame-src 'self' https://www.youtube.com https://docs.google.com;">
 
-    <meta property="og:site_name" content="Xavier Sanchez Portfolio">
-
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Xavier Sanchez - Speaker & Leader">
+    <meta name="twitter:title" content="Xavier Sanchez: Speaker & Leader">
     <meta name="twitter:description"
         content="Scaling operations, overcoming adversity, and the 'Never Say Never' mindset.">
     <meta name="twitter:image" content="https://xxaviersanchezz.me/assets/profile.jpg">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
 
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="manifest" href="assets/site.webmanifest">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://www.youtube.com">
     <link rel="dns-prefetch" href="https://docs.google.com">
+
     <link rel="canonical" href="https://xxaviersanchezz.me/">
-    <link rel="stylesheet" href="style.css?v=5">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=6">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -50,12 +47,13 @@
 
         <div class="trust-bar">
             <span>PREVIOUSLY SPOKEN AT:</span>
-            <p>SPURS GIVE • YMCA • KINETIC KIDS • RESPITE CARE</p>
+            <div class="marquee-container">
+                <div class="marquee-track" id="marquee-track"></div>
+            </div>
         </div>
 
         <header class="profile">
             <img src="assets/profile.jpg" alt="Xavier Sanchez" class="profile-pic" fetchpriority="high">
-
             <h1>Xavier Sanchez</h1>
             <p class="subtitle">Community Leader | Public Speaker | Inclusion Advocate</p>
         </header>
@@ -98,32 +96,45 @@
 
         <footer class="socials">
             <a href="https://www.instagram.com/xxaviersanchezz" target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
+                aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://www.facebook.com/xxaviersanchezz" target="_blank" rel="noopener noreferrer"
-                aria-label="Facebook">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <a href="https://www.youtube.com/@XavierFitness" target="_blank" rel="noopener noreferrer"
-                aria-label="YouTube">
-                <i class="fab fa-youtube"></i>
-            </a>
+                aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.youtube.com/@xxaviersanchezz" target="_blank" rel="noopener noreferrer"
+                aria-label="YouTube"><i class="fab fa-youtube"></i></a>
             <a href="https://twitter.com/xxaviersanchezz" target="_blank" rel="noopener noreferrer"
-                aria-label="Twitter">
-                <i class="fab fa-x-twitter"></i>
-            </a>
-            <a href="https://tiktok.com/@xxaviersanchezz" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-                <i class="fab fa-tiktok"></i>
-            </a>
+                aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://tiktok.com/@xxaviersanchezz" target="_blank" rel="noopener noreferrer"
+                aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
         </footer>
 
         <div class="legal-footer">
             <p>&copy; 2026 Xavier Sanchez. All Rights Reserved.</p>
-            <p>San Antonio, TX • <a href="mailto:xxaviersanchezz@gmail.com">Contact</a></p>
+            <p>San Antonio, TX • <a href="book.html">Contact</a></p>
         </div>
 
     </main>
+
+    <script>
+        // 1. EDIT THIS LIST to add/remove companies
+        const partners = [
+            "SPURS Silver & Black Give Back",
+            "YMCA of Greater San Antonio",
+            "Aceable",
+            "Believe It Foundation",
+            "Respite Care of San Antonio",
+            "Built for Business"
+        ];
+
+        // 2. The Logic
+        const track = document.getElementById('marquee-track');
+        const singleSet = partners.map(name => {
+            // FIXED: Replaced garbled character with standard bullet point
+            return `<span class="partner">${name}</span> <span class="dot">•</span>`;
+        }).join('');
+
+        // 3. Injects 4 sets for seamless scrolling
+        track.innerHTML = singleSet + singleSet + singleSet + singleSet;
+    </script>
 
 </body>
 

@@ -2,14 +2,11 @@
    1. VARIABLES & RESET
    ========================================= */
 :root {
-    /* Brand Colors */
     --gold: #D4AF37;
     --gold-light: #F2D06B;
     --gold-highlight: #FFD700;
     --black: #000000;
     --white: #ffffff;
-
-    /* UI Settings */
     --gap-size: 12px;
     --btn-radius: 50px;
     --backdrop: rgba(0, 0, 0, 0.8);
@@ -21,11 +18,10 @@
     box-sizing: border-box;
     font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
     -webkit-tap-highlight-color: transparent;
-    /* Removes blue tap box on Android */
 }
 
 /* =========================================
-   2. MAIN LAYOUT & BACKGROUND
+   2. MAIN LAYOUT
    ========================================= */
 body {
     min-height: 100vh;
@@ -38,6 +34,7 @@ body {
     color: var(--gold);
 }
 
+/* Background Effect */
 body::before {
     content: "";
     position: fixed;
@@ -57,7 +54,6 @@ body::before {
 .container {
     width: 100%;
     max-width: 420px;
-    /* Locked "Mobile Card" shape */
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -70,30 +66,7 @@ body::before {
    3. COMPONENTS
    ========================================= */
 
-/* Trust Bar */
-.trust-bar {
-    opacity: 0.9;
-    margin-bottom: 5px;
-}
-
-.trust-bar span {
-    font-size: 0.7rem;
-    color: var(--white);
-    letter-spacing: 2px;
-    display: block;
-    margin-bottom: 5px;
-}
-
-.trust-bar p {
-    font-size: 0.75rem;
-    color: var(--gold);
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 1);
-}
-
-/* Static Gold Halo Profile Pic */
+/* --- Profile Picture --- */
 .profile-pic {
     width: 135px;
     height: 135px;
@@ -101,37 +74,73 @@ body::before {
     object-fit: cover;
     display: block;
     margin: 0 auto 15px auto;
-
-    /* Layer 1: Border */
     border: 1px solid var(--black);
-    /* Layer 2: Gold Halo */
     outline: 4px solid var(--gold);
     outline-offset: 4px;
-    /* Layer 3: Glow */
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
 }
 
-/* Typography */
-h1 {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--white);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-    line-height: 1.2;
+/* --- Infinite Marquee (Trust Bar) --- */
+.trust-bar {
+    opacity: 0.9;
+    margin-bottom: 10px;
+    width: 100%;
+    overflow: hidden;
 }
 
-.subtitle {
-    font-size: 0.9rem;
+.trust-bar span {
+    font-size: 0.7rem;
+    color: var(--white);
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.marquee-container {
+    width: 100%;
+    position: relative;
+    /* Fade Effect */
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: max-content;
+    will-change: transform;
+    /* Keeps it smooth */
+    animation: scroll-infinite 20s linear infinite;
+}
+
+.partner {
+    font-size: 0.75rem;
     color: var(--gold);
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 1px;
     text-transform: uppercase;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
-    line-height: 1.4;
-    margin-bottom: 10px;
+    white-space: nowrap;
+    padding: 0 10px;
 }
 
-/* Section Headers */
+.dot {
+    color: var(--white);
+    font-size: 0.6rem;
+    opacity: 0.4;
+}
+
+@keyframes scroll-infinite {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+/* --- Section Headers --- */
 .section-header {
     margin-top: 6px;
     margin-bottom: 5px;
@@ -152,7 +161,29 @@ h1 {
 }
 
 /* =========================================
-   4. BUTTONS
+   4. TYPOGRAPHY
+   ========================================= */
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    line-height: 1.2;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    line-height: 1.4;
+    margin-bottom: 10px;
+}
+
+/* =========================================
+   5. BUTTONS
    ========================================= */
 .btn {
     display: flex;
@@ -180,7 +211,6 @@ h1 {
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
 }
 
-/* Interactions */
 .btn:active {
     transform: scale(0.98);
     background: var(--gold);
@@ -197,7 +227,7 @@ h1 {
 }
 
 /* =========================================
-   5. DROPDOWNS & SOCIALS
+   6. INTERACTIVE ELEMENTS (Dropdowns/Footer)
    ========================================= */
 details.topic-dropdown {
     width: 100%;
@@ -245,6 +275,7 @@ summary::-webkit-details-marker {
     }
 }
 
+/* Socials */
 .socials {
     display: flex;
     justify-content: center;
@@ -291,7 +322,7 @@ summary::-webkit-details-marker {
 }
 
 /* =========================================
-   6. BOOKING PAGE ASSETS
+   7. BOOKING PAGE ASSETS
    ========================================= */
 .video-wrapper {
     position: relative;
@@ -323,29 +354,23 @@ summary::-webkit-details-marker {
 
 .form-wrapper iframe {
     width: 100% !important;
-    /* Critical fix for mobile */
     min-height: 800px;
     border: none;
 }
 
 /* =========================================
-   7. DESKTOP ZOOM
+   8. DESKTOP OPTIMIZATION
    ========================================= */
 @media (min-width: 768px) {
-
-    /* NEW: Fixes the cut-off top on laptops */
     body {
         align-items: flex-start;
-        /* Stops forcing it to the middle */
+        /* Fixes cut-off top on laptops */
         padding-top: 60px;
-        /* Adds safe space at the top */
     }
 
     .container {
         transform: scale(1.3);
         transform-origin: top center;
-
-        /* Reset margins since 'body' is handling the spacing now */
         margin-top: 0;
         margin-bottom: 100px;
     }
