@@ -1,0 +1,16 @@
+name: No Contributions
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  auto-close:
+    runs-on: ubuntu-latest
+    if: github.actor != 'bloocool' && github.actor != 'dependabot[bot]'
+    timeout-minutes: 1  # <--- NEW SAFETY ADDITION
+    steps:
+      - name: Close Pull Request
+        uses: superbrothers/close-pull-request@v3
+        with:
+          comment: "Thank you for your interest! However, this is a personal portfolio and I am not accepting external contributions. This PR has been automatically closed."
