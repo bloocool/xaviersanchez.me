@@ -34,7 +34,7 @@ body {
     color: var(--gold);
 }
 
-/* Background Effect - UPDATED TO WEBP */
+/* Background Effect */
 body::before {
     content: "";
     position: fixed;
@@ -88,7 +88,8 @@ body::before {
     overflow: hidden;
 }
 
-.trust-bar span {
+/* FIXED: Changed from generic 'span' to specific class */
+.trust-label {
     font-size: 0.7rem;
     color: var(--white);
     letter-spacing: 2px;
@@ -110,6 +111,12 @@ body::before {
     width: max-content;
     will-change: transform;
     animation: scroll-infinite 20s linear infinite;
+}
+
+/* NEW: Ensures the accessibility groups line up horizontally */
+.marquee-group {
+    display: flex;
+    align-items: center;
 }
 
 .partner {
@@ -203,7 +210,6 @@ h1 {
     user-select: none;
 }
 
-/* Optimized small button class */
 .btn-sm {
     display: inline-flex;
     width: auto;
