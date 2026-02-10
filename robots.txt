@@ -3,4 +3,4 @@ Allow: /
 Allow: /assets/
 
 # Sitemaps
-Sitemap: https://xxaviersanchezz.me/sitemap.xml
+Sitemap: https://bookxavier.com/sitemap.xml
