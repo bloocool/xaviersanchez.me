@@ -4,20 +4,20 @@
    
    <url>
       <loc>https://bookxavier.com/</loc>
-      <lastmod>2026-02-09</lastmod>
+      <lastmod>2026-03-11</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
       <image:image>
          <image:loc>https://bookxavier.com/assets/profile.webp</image:loc>
-         <image:title>Xavier Sanchez Global Keynote Speaker</image:title>
-         <image:caption>Xavier Sanchez, disabled speaker and operational leader teaching resilience.</image:caption>
+         <image:title>Xavier Sanchez Keynote Speaker</image:title>
+         <image:caption>Xavier Sanchez, resilience and DEI keynote speaker based in San Antonio, TX.</image:caption>
       </image:image>
    </url>
 
    <url>
       <loc>https://bookxavier.com/book.html</loc>
-      <lastmod>2026-02-09</lastmod>
-      <changefreq>weekly</changefreq>
+      <lastmod>2026-03-11</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
 
